@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <div class="header">
+            <a href="https://fuyasevoiceroid.mosin.jp/">TOPページへ</a>
+        </div>
+        <div class="panel">
+            <h1> スコアランキング(総資産) TOP 10</h1>
+            <table>
+                <tr>
+                    <th> 順位 </th>
+                    <th> ユーザー名 </th>
+                    <th> 総資産 </th>
+                </tr>
+                <% for(let i = 0; i < 10; i++) { %>
+                <tr>
+                    <% let score = scores[i]; %>
+                    <% if(score) { %>
+                    <td> <%= i + 1 %> </td>
+                    <td> <%= score.uid %> </td>
+                    <td> <%= score.score %> </td>
+                    <% } else { %>
+                    <td> <%= i + 1 %> </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <% } %>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>

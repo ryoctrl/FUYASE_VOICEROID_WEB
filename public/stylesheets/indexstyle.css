@@ -1,0 +1,109 @@
+body {
+    background-image: url("/images/Background.jpg");
+    background-size: 100% 135%;
+    width: 99%;
+    height: 100%;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h2,h3 {
+    color: pink;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+a {
+    color: #00B7FF;
+}
+
+
+.header {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
+
+.panel {
+    background-color: rgba(33, 33, 33, 0.5);
+    text-align: center;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    color: white;
+    padding: 20px;
+}
+
+.contents {
+    display: flex;
+}
+
+#screenshots {
+    width: 50%;
+}
+
+#others {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.button {
+    color: #FFFFFF;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 6px 12px;
+    font-size: 22px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2.5vh auto;
+    width: 15vw;
+}
+
+.button:hover {
+    background-color: #33FFFF;
+    transition-duration: 500ms;
+
+}
+
+@media screen and (max-width: 767px) {
+    body::before {
+        background-image: url("/images/Background.jpg");
+        background-size: 100% 135%;
+        background-attachment: fixed;
+        width: 99%;
+        height: 100%;
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        text-align: center;
+    }
+
+    .contents {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #screenshots {
+        width: 100%;
+    }
+
+    #others {
+        width: 100%;
+    }
+
+    .button {
+        width: 80vw;
+    }
+
+}

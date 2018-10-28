@@ -1,0 +1,53 @@
+body {
+    background-image: url("/images/Background.jpg");
+    background-size: 100% 110%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.header {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.contents {
+    display: flex;
+}
+
+#screenshots {
+}
+
+#others {
+}
+
+.panel {
+    background-color: rgba(33, 33, 33, 0.5);
+    text-align: center;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+.panel table {
+    margin: 0 auto;
+}
+
+.panel table th {
+    width: 20vw;
+    height: 4vh;
+    font-size: 1.8em;
+}
+
+.panel table td {
+    width: 20vw;
+    height: 7vh;
+    color: white;
+    font-size: 2em;
+}
+
+
+a {
+    color: #00B7FF;
+}

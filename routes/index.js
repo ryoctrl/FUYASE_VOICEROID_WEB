@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+const numberOfPage = 10;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,24 +9,35 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/score', async function(req, res, next) {
+    let page = Number(req.query.page);
+    if(Number.isNaN(page)) page = 1;
     let query = {
         order: [['score', 'DESC']],
-        limit: 10
+        limit: numberOfPage,
+        offset: (page - 1)  * numberOfPage
     };
     let records = await models.scores.findAll(query);
     let objects = [];
 
+    let baseRank = (page - 1) * numberOfPage + 1;
+
     for(record of records) {
         let uid = record.getDataValue('uid');
         let score = record.getDataValue('score');
-        console.log(uid + "," + score);
         objects.push({
+            rank: baseRank,
             uid: uid,
             score: score
         });
+        baseRank++;
     }
 
-    res.render('scores', { scores: objects});
+    const resObject = {
+        page: page,
+        scores: objects,
+        numOfPage: Math.floor((await models.scores.count() / numberOfPage) + 1)
+    };
+    res.render('scores', resObject);
 });
 
 router.post('/score/create', async function(req, res, next) {

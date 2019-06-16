@@ -1,9 +1,9 @@
 body {
     background-image: url("/images/Background.jpg");
-    background-size: 100% 110%;
-    width: 100%;
+    background-size: 100% 104%;
+    width: 99%;
     height: 100%;
-    overflow: hidden;
+/*    overflow: hidden;*/
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -50,4 +50,33 @@ body {
 
 a {
     color: #00B7FF;
+    text-decoration: none;
 }
+
+#pagenate {
+    width: 20vw;
+    display: inline-flex;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.page-item {
+    background: rebeccapurple;
+    margin: 9px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.4em;
+    text-align: center;
+    border-radius: 20%;
+    line-height: 30px;
+}
+
+.selecting {
+    background-color: pink;
+}
+
+#pagenate a:link { color: pink;}
+#pagenate a:visited { color: pink;}
+#pagenate a:hover { color: pink;}
+#pagenate a:active{ color: pink;}

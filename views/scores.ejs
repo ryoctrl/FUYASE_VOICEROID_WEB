@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>スコアランキング</title>
         <link rel='stylesheet' href='/stylesheets/style.css' />
     </head>
     <body>
@@ -8,7 +9,7 @@
             <a href="https://fuyasevoiceroid.mosin.jp/">TOPページへ</a>
         </div>
         <div class="panel">
-            <h1> スコアランキング(総資産) TOP 10</h1>
+            <h1> スコアランキング(総資産)</h1>
             <table>
                 <tr>
                     <th> 順位 </th>
@@ -18,18 +19,33 @@
                 <% for(let i = 0; i < 10; i++) { %>
                 <tr>
                     <% let score = scores[i]; %>
-                    <% if(score) { %>
-                    <td> <%= i + 1 %> </td>
+                    <% if(score != null) { %>
+                    <td> <%= score.rank%> </td>
                     <td> <%= score.uid %> </td>
-                    <td> <%= score.score %> </td>
+                    <td> ￥<%= String(score.score).split("").reverse().join("").match(/\d{1,3}/g).join(",").split("").reverse().join(""); %> </td>
                     <% } else { %>
-                    <td> <%= i + 1 %> </td>
+                    <td> - </td>
                     <td> - </td>
                     <td> - </td>
                     <% } %>
                 </tr>
                 <% } %>
             </table>
+            <div id="pagenate">
+                <% if(page != 1) { %>
+                <div class="page-item"> <a href="?page=<%= page-1 %>"><</a></div>
+                <% } %>
+            <% for(let i = 1; i <= numOfPage; i++) { %>
+                <% if(i == page) { %>
+                <div class="page-item selecting"><%= i %> </div>
+                <% } else { %>
+                <div class="page-item"> <a href="?page=<%= i %>"><%=i%></a></div>
+                <% } %>
+            <% } %>
+            <% if(page < numOfPage) { %>
+            <div class="page-item"> <a href="?page=<%= page+1 %>">></a></div>
+            <% } %>
+            </div>
         </div>
     </body>
 </html>
